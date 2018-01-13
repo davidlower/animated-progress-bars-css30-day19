@@ -5,10 +5,256 @@
    padding: 0;
 }
 
+/* html {
+   background: url(new-york.jpg) no-repeat center center fixed;
+   background-size: cover;
+} */
+
 body {
    font-family: 'Poppins', sans-serif;
-   --p-color: #37DA9D;
-   --s-color: rgba(0, 23, 12, 0.8);
+   --green: #37DA9D;
+   --s-color: #e2e2e2;
+   --blue: #26c9ed;
+   --purple: #c848f5;
+   --yellow: #faf982;
+   --red: #ff2e7f;
    font-size: 16px;
    font-weight: 200;
+}
+
+.wrapper {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+
+   width: 1000px;
+
+   -webkit-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+}
+
+/* GLOBAL CONTAINER STYLES */
+
+.progress-bar-container {
+   width: 80%;
+   margin: 8% auto;
+   padding: 5px 0 4px 6px;
+
+   border-radius: 25px;
+   background-color: var(--s-color);
+   -webkit-box-shadow: inset -1px 2px 2px #acacac;
+   box-shadow: inset -1px 2px 2px #acacac;
+}
+
+.progress-bar-container span {
+   position: relative;
+
+   display: inline-block;
+
+   width: 70%;
+   height: 30px;
+
+   vertical-align: middle;
+
+   color: white;
+   border-radius: 25px 0 0 25px;
+   -webkit-box-shadow: inset 1px 1px 2px #c3c3c3,
+   inset 1px -1px 1px #c3c3c3;
+   box-shadow: inset 1px 1px 2px #c3c3c3,
+   inset 1px -1px 1px #c3c3c3;
+
+   font-size: 0.8rem;
+}
+
+/* PROGRESS BAR 1 STYLES */
+
+.progress-bar-1 span {
+   -webkit-animation: progress-bar-1 5s linear infinite;
+   animation: progress-bar-1 5s linear infinite;
+
+   background-color: var(--green);
+   background-image: -webkit-gradient(linear, left top, right bottom, from(var(--blue)), to(var(--green)));
+   background-image: linear-gradient(to bottom right, var(--blue), var(--green));
+}
+
+.progress-bar-1 span::after {
+   position: absolute;
+   right: 10px;
+
+   padding: 6px 0;
+
+   content: attr(data-label);
+}
+
+/* PRGORESS BAR 2 STYLES */
+
+.progress-bar-2 span {
+   -webkit-animation: progress-bar-2 5s linear infinite;
+   animation: progress-bar-2 5s linear infinite;
+
+   background-color: var(--green);
+   background-image: -webkit-gradient(linear, left top, right bottom, from(var(--yellow)), to(var(--red)));
+   background-image: linear-gradient(to bottom right, var(--yellow), var(--red));
+}
+
+.progress-bar-2 span::before {
+   position: absolute;
+   left: calc(100% + 10px);
+
+   width: 110px;
+   padding: 6px 0;
+
+   content: attr(data-label);
+
+   color: var(--red);
+}
+
+.progress-bar-2 span::after {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+
+   content: "";
+   -webkit-animation: progress-bar2-spin 1s infinite linear;
+   animation: progress-bar2-spin 1s infinite linear;
+
+   opacity: 0.3;
+   border-radius: 25px 0 0 25px;
+   background-image: linear-gradient(-45deg, white 25%,
+   rgba(0, 0, 0, 0) 25%,
+   rgba(0, 0, 0, 0) 50%,
+   white 50%,
+   white 75%,
+   rgba(0, 0, 0, 0) 75%,
+   rgba(0, 0, 0, 0));
+   background-size: 30px 30px;
+}
+
+/* PRGORESS BAR 3 STYLES */
+
+.progress-bar-3 {
+   padding: 6px 0 5px 7px;
+
+   background-image: -webkit-gradient(linear, left top, right top, from(var(--blue)), to(var(--purple)));
+   background-image: linear-gradient(to right, var(--blue), var(--purple));
+   -webkit-box-shadow: inset 1px 2px 4px #575757;
+   box-shadow: inset 1px 2px 4px #575757;
+}
+
+.progress-bar-3 span {
+   -webkit-animation: progress-bar-3 5s ease infinite;
+   animation: progress-bar-3 5s ease infinite;
+
+   border-right: 1px solid #545454;
+   background-color: rgba(0, 0, 0, 0.1);
+   -webkit-box-shadow: inset 1px 1px 2px #545454,
+   inset 0 -1px 1px #545454;
+   box-shadow: inset 1px 1px 2px #545454,
+   inset 0 -1px 1px #545454;
+}
+
+.progress-bar-3 span::before {
+   position: absolute;
+   right: -5px;
+   bottom: 100%;
+
+   content: "";
+
+   border: solid 5px transparent;
+   border-top: solid 5px rgba(35, 0, 51, 0.8);
+}
+
+.progress-bar-3 span::after {
+   position: absolute;
+   right: -5px;
+   bottom: calc(100% + 10px);
+
+   width: 110px;
+   padding: 10px 0;
+
+   content: attr(data-label);
+   -webkit-transform: translateX(50%);
+   transform: translateX(50%);
+   text-align: center;
+
+   border-radius: 10px;
+   background-color: rgba(35, 0, 51, 0.8);
+}
+
+
+
+/* KEYFRAMES */
+
+@-webkit-keyframes progress-bar-1 {
+   0%, 100% {
+      width: 11%;
+   }
+   50% {
+      width: 70%;
+   }
+}
+
+@keyframes progress-bar-1 {
+   0%, 100% {
+      width: 11%;
+   }
+   50% {
+      width: 70%;
+   }
+}
+
+@-webkit-keyframes progress-bar-2 {
+   0%, 100% {
+      width: 4%;
+   }
+   50% {
+      width: 80%;
+   }
+}
+
+@keyframes progress-bar-2 {
+   0%, 100% {
+      width: 4%;
+   }
+   50% {
+      width: 80%;
+   }
+}
+
+@-webkit-keyframes progress-bar2-spin {
+   0% {
+      background-position: 0 100%;
+   }
+   100% {
+      background-position: 30px 100%;
+   }
+}
+
+@keyframes progress-bar2-spin {
+   0% {
+      background-position: 0 100%;
+   }
+   100% {
+      background-position: 30px 100%;
+   }
+}
+
+@-webkit-keyframes progress-bar-3 {
+   0%, 100% {
+      width: 4%;
+   }
+   50% {
+      width: 90%;
+   }
+}
+
+@keyframes progress-bar-3 {
+   0%, 100% {
+      width: 4%;
+   }
+   50% {
+      width: 90%;
+   }
 }
