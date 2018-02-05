@@ -5,39 +5,26 @@
    padding: 0;
 }
 
-/* html {
-   background: url(new-york.jpg) no-repeat center center fixed;
-   background-size: cover;
-} */
-
 body {
    font-family: 'Poppins', sans-serif;
    --green: #37DA9D;
    --s-color: #e2e2e2;
-   --blue: #26c9ed;
-   --purple: #c848f5;
-   --yellow: #faf982;
-   --red: #ff2e7f;
+   --t-color: #0fa264;
    font-size: 16px;
    font-weight: 200;
 }
 
 .wrapper {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-
-   width: 1000px;
-
-   -webkit-transform: translate(-50%, -50%);
-   transform: translate(-50%, -50%);
+   width: 90%;
+   max-width: 1000px;
+   margin: 10% auto;
 }
 
 /* GLOBAL CONTAINER STYLES */
 
 .progress-bar-container {
    width: 80%;
-   margin: 8% auto;
+   margin: 50px auto;
    padding: 5px 0 4px 6px;
 
    border-radius: 25px;
@@ -73,8 +60,6 @@ body {
    animation: progress-bar-1 5s linear infinite;
 
    background-color: var(--green);
-   background-image: -webkit-gradient(linear, left top, right bottom, from(var(--blue)), to(var(--green)));
-   background-image: linear-gradient(to bottom right, var(--blue), var(--green));
 }
 
 .progress-bar-1 span::after {
@@ -93,20 +78,17 @@ body {
    animation: progress-bar-2 5s linear infinite;
 
    background-color: var(--green);
-   background-image: -webkit-gradient(linear, left top, right bottom, from(var(--yellow)), to(var(--red)));
-   background-image: linear-gradient(to bottom right, var(--yellow), var(--red));
+   background-image: linear-gradient(to bottom right, var(--t-color), var(--green));
 }
 
 .progress-bar-2 span::before {
    position: absolute;
    left: calc(100% + 10px);
-
-   width: 110px;
-   padding: 6px 0;
+   width: 90px;
+   padding: 6px 0px;
 
    content: attr(data-label);
-
-   color: var(--red);
+   color: #222222;
 }
 
 .progress-bar-2 span::after {
@@ -137,8 +119,7 @@ body {
 .progress-bar-3 {
    padding: 6px 0 5px 7px;
 
-   background-image: -webkit-gradient(linear, left top, right top, from(var(--blue)), to(var(--purple)));
-   background-image: linear-gradient(to right, var(--blue), var(--purple));
+   background-color: var(--green);
    -webkit-box-shadow: inset 1px 2px 4px #575757;
    box-shadow: inset 1px 2px 4px #575757;
 }
@@ -163,7 +144,7 @@ body {
    content: "";
 
    border: solid 5px transparent;
-   border-top: solid 5px rgba(35, 0, 51, 0.8);
+   border-top: solid 5px var(--t-color);
 }
 
 .progress-bar-3 span::after {
@@ -180,16 +161,50 @@ body {
    text-align: center;
 
    border-radius: 10px;
-   background-color: rgba(35, 0, 51, 0.8);
+   background-color: var(--t-color);
 }
 
+/* BOTTOM NAVIGATION */
 
+.navigation {
+   position: absolute;
+   bottom: 5%;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   align-items: flex-end;
+   justify-content: center;
+
+   margin: 0 auto;
+
+   font-size: 2rem;
+}
+
+.navigation a {
+   text-decoration: none;
+
+   color: #ebebeb;
+}
+
+.navigation a:nth-child(2) {
+   padding: 0 30px;
+}
+
+.navigation a:hover {
+   cursor: pointer;
+
+   color: #bbb9bb;
+}
+
+.navigation a:active {
+   transform: translateY(1px);
+}
 
 /* KEYFRAMES */
 
 @-webkit-keyframes progress-bar-1 {
    0%, 100% {
-      width: 11%;
+      width: 24%;
    }
    50% {
       width: 70%;
@@ -198,7 +213,7 @@ body {
 
 @keyframes progress-bar-1 {
    0%, 100% {
-      width: 11%;
+      width: 24%;
    }
    50% {
       width: 70%;
@@ -210,7 +225,7 @@ body {
       width: 4%;
    }
    50% {
-      width: 80%;
+      width: 70%;
    }
 }
 
@@ -219,7 +234,7 @@ body {
       width: 4%;
    }
    50% {
-      width: 80%;
+      width: 70%;
    }
 }
 
@@ -256,5 +271,14 @@ body {
    }
    50% {
       width: 90%;
+   }
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 850px) {
+   .progress-bar-container {
+      width: 100%;
    }
 }
